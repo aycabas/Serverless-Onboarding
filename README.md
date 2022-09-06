@@ -1,8 +1,7 @@
-# Seemless onboarding for new employees with Microsoft Graph, Event Hubs and Logic Apps
-
+# Build seamless automations to boost productivity with Microsoft Graph, Event Hubs and Logic Apps
 Every day millions of people spend their precious time in productivity tools. What if you use data and intelligence behind the Microsoft applications (Microsoft Teams, Outlook, and many other Office apps) to build seemsless automations and custom apps to boost productivity? 
 
-In this post, we'll build a seemsless onboarding experience to new employees joining a company with the power of Microsoft Graph. 
+In this post, we'll build a seamsless onboarding experience to new employees joining a company with the power of Microsoft Graph. 
 
 ## 📝 What We'll Cover
 - ✨ The power of Microsoft Graph
