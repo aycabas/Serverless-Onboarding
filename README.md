@@ -14,7 +14,7 @@ In this post, we'll build a seemsless onboarding experience to new employees joi
 - 📚 Resources
 
 Following pre-requisites are recommended:
-- [Microsoft 365 Developer Program](https://aka.ms/m365developers) account
+- [Microsoft 365 Developer Program account](https://aka.ms/m365developers)
 - [Microsoft Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
 ## ✨ The power of Microsoft Graph
@@ -154,69 +154,8 @@ We'll create a second workflow in the Logic Apps to receive change notifications
     - Select output from previous steps: `Events`
 1. Inside For each, select **+** in the flow and **add an action**, search for **Data operations** and select **Parse JSON**. Fill in Parse JSON action as below:
     - Content: `Events Content`
-    - Schema:
-    ```json
-    {
-    "properties": {
-        "value": {
-            "items": {
-                "properties": {
-                    "changeType": {
-                        "type": "string"
-                    },
-                    "clientState": {
-                        "type": "string"
-                    },
-                    "resource": {
-                        "type": "string"
-                    },
-                    "resourceData": {
-                        "properties": {
-                            "@@odata.id": {
-                                "type": "string"
-                            },
-                            "@@odata.type": {
-                                "type": "string"
-                            },
-                            "id": {
-                                "type": "string"
-                            },
-                            "organizationId": {
-                                "type": "string"
-                            },
-                            "sequenceNumber": {
-                                "type": "integer"
-                            }
-                        },
-                        "type": "object"
-                    },
-                    "subscriptionExpirationDateTime": {
-                        "type": "string"
-                    },
-                    "subscriptionId": {
-                        "type": "string"
-                    },
-                    "tenantId": {
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "changeType",
-                    "clientState",
-                    "resource",
-                    "resourceData",
-                    "subscriptionExpirationDateTime",
-                    "subscriptionId",
-                    "tenantId"
-                ],
-                "type": "object"
-            },
-            "type": "array"
-        }
-    },
-    "type": "object"
-    }
-    ```
+    - Schema: Copy the json content from [schema-parse-json.json](/src/schema-parse-json.json) and paste as a schema
+  
 1. Select **+** in the flow and **add an action**, search for **Control** and add **For each** as an action. Fill in For each action as below:
     - Select output from previous steps: `value`
 1. 1. Inside For each, select **+** in the flow and **add an action**, search for **Microsoft Teams** and select **Add a member to a team**. Login with your Microsoft 365 account to create a connection and fill in Add a member to a team action as below:
