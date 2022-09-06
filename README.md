@@ -31,7 +31,7 @@ If you'd like to track a large set of resources in a high frequency, you can use
 ### Setup Azure Event Hubs and Azure KeyVault 
 To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll have to setup Azure Event Hubs and Azure Key Vault. We'll use Azure Key Vault to access to Event Hubs connection string. 
 
-#### Create Azure Event Hubs
+#### 1. Create Azure Event Hubs
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Event Hubs** and select click **Create**.
 1. Fill in the Event Hubs namespace creation details, and then click **Create**.
 1. Go to the newly created Event Hubs namespace page, select **Event Hubs** tab from the left pane and **+ Event Hub**:
@@ -43,7 +43,7 @@ To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll
     - Click **Create**.
 1. After the policy has been created, click the name of the policy to open the details panel, and then copy the **Connection string-primary key** value. Write it down; you'll need it for the next step.
 
-#### Create Azure Key Vault
+#### 2. Create Azure Key Vault
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Key Vault** and select **Create**.
 1. Fill in the Key Vault creation details, and then click **Review + Create**.
 1. Go to newly created Key Vault and select **Secrets** tab from the left pane and click **+ Generate/Import**:
@@ -62,7 +62,7 @@ To start receiving Microsoft Graph Change Notifications, we'll need to create su
 
 To create subscription for Microsoft Graph Change Notifications, we'll need to make a http post request to `https://graph.microsoft.com/v1.0/subscriptions`. Microsoft Graph requires Azure Active Directory authentication make API calls. First, we'll need to register an app to Azure Active Directory, and then we will make the Microsoft Graph Subscription API call with Azure Logic Apps.
 
-##### Create an app in Azure Active Directory
+#### 1. Create an app in Azure Active Directory
 1. In the [Azure Portal](https://portal.azure.com), go to **Azure Active Directory** and select **App registrations** from the left pane and select **+ New registration**. Fill in the details for the new App registration form as below:
     - Name: Graph Subscription Flow Auth
     - Supported account types: *Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)*
@@ -77,7 +77,7 @@ To create subscription for Microsoft Graph Change Notifications, we'll need to m
     - Copy the *value of the secret*.
 1. Go to **Overview** from the left pane, copy *Application (client) ID* and *Directory (tenant) ID*.
 
-##### Create subscription with Azure Logic Apps
+#### 2. Create subscription with Azure Logic Apps
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Logic apps** and select click **Create**.
 1. Fill in the Logic Apps creation details, and then click **Create**.
 1. Go to the newly created Logic Apps page, select **Workflows** tab from the left pane and select **+ Add**:
