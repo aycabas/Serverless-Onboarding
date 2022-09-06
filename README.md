@@ -7,7 +7,9 @@ In this post, we'll build a seemsless onboarding experience to new employees joi
 ## 📝 What We'll Cover
 - ✨ The power of Microsoft Graph
 - 🖇️ How do Microsoft Graph and Event Hubs work together?
-- 🎟️ Add new employees in the Onboarding team on Microsoft Teams by using the Logic Apps
+- ⚒️ Exercise: Setup Azure Event Hubs and Key Vault
+- 🪡 Exercise: Subscribe to `users` resource to receive change notifications by using Logic Apps
+- ♾️ Exercise: Create Onboarding workflow in the Logic Apps
 - 🚀 Debug your onboarding experience
 - 📚 Resources
 
@@ -34,7 +36,7 @@ If you'd like to track a large set of resources in a high frequency, you can use
 
 > Microsoft Graph Change Notifications can be also received by using Azure Event Grid that is currently available for Microsoft Partners. Please review the documentation for more information: [Partner Events overview for customers - Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/partner-events-overview)
 
-### ⚒️ Exercise: Setup Azure Event Hubs and Key Vault 
+## ⚒️ Exercise: Setup Azure Event Hubs and Key Vault 
 To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll have to setup Azure Event Hubs and Azure Key Vault. We'll use Azure Key Vault to access to Event Hubs connection string. 
 
 ### 1️⃣ Create Azure Event Hubs
@@ -64,7 +66,7 @@ To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll
     - Click **Add**.
 1. Select **Overview** tab from the left pane and copy the **Vault URI**.
 
-### 🪡 Exercise: Subscribe to `users` resource to receive change notifications by using Logic Apps
+## 🪡 Exercise: Subscribe to `users` resource to receive change notifications by using Logic Apps
 To start receiving Microsoft Graph Change Notifications, we'll need to create subscription to the resource that we'd like to track. We'll use Azure Logic Apps to create subscription. 
 
 To create subscription for Microsoft Graph Change Notifications, we'll need to make a http post request to `https://graph.microsoft.com/v1.0/subscriptions`. Microsoft Graph requires Azure Active Directory authentication make API calls. First, we'll need to register an app to Azure Active Directory, and then we will make the Microsoft Graph Subscription API call with Azure Logic Apps.
@@ -131,12 +133,9 @@ To create subscription for Microsoft Graph Change Notifications, we'll need to m
 
 After subscription is created successfully by Logic Apps, Azure Event Hubs will receive notifications whenever there is a new user created in Azure Active Directory.
 
-## 🎟️ Add new employees in the Onboarding team on Microsoft Teams with Logic Apps
-We'll create a second workflow in the Logic Apps to:
-- Receive change notifications from Event Hubs when there is a new user created in the Azure Active Directory,
-- Add new user in Onboarding team on Microsoft Teams.
+## ♾️ Exercise: Create Onboarding workflow in the Logic Apps
+We'll create a second workflow in the Logic Apps to receive change notifications from Event Hubs when there is a new user created in the Azure Active Directory and add new user in Onboarding team on Microsoft Teams.
 
-### ♾️ Exercise: Create Onboarding workflow in the Logic Apps
 1. Go to the Logic Apps you created in the previous steps, select **Workflows** tab and create a new workflow by selecting **+ Add**:
     - Give a name to the new workflow as *teams-onboarding-flow*
     - Select **Stateful** as a state type
