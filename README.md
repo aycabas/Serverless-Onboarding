@@ -34,10 +34,10 @@ If you'd like to track a large set of resources in a high frequency, you can use
 
 > Microsoft Graph Change Notifications can be also received by using Azure Event Grid that is currently available for Microsoft Partners. Please review the documentation for more information: [Partner Events overview for customers - Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/partner-events-overview)
 
-### Setup Azure Event Hubs and Key Vault 
+### ⚒️ Exercise: Setup Azure Event Hubs and Key Vault 
 To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll have to setup Azure Event Hubs and Azure Key Vault. We'll use Azure Key Vault to access to Event Hubs connection string. 
 
-### 1️. Create Azure Event Hubs
+### 1️⃣ Create Azure Event Hubs
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Event Hubs** and select click **Create**.
 1. Fill in the Event Hubs namespace creation details, and then click **Create**.
 1. Go to the newly created Event Hubs namespace page, select **Event Hubs** tab from the left pane and **+ Event Hub**:
@@ -50,7 +50,7 @@ To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll
 1. After the policy has been created, click the name of the policy to open the details panel, and then copy the **Connection string-primary key** value. Write it down; you'll need it for the next step.
 1. Go to **Consumer groups** tab in the left pane and select **+ Consumer group**, give a name for your consumer group as *onboarding* and select **Create**.
 
-### 2️. Create Azure Key Vault
+### 2️⃣ Create Azure Key Vault
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Key Vault** and select **Create**.
 1. Fill in the Key Vault creation details, and then click **Review + Create**.
 1. Go to newly created Key Vault and select **Secrets** tab from the left pane and click **+ Generate/Import**:
@@ -64,12 +64,12 @@ To get Microsoft Graph Change Notifications delivered to Azure Event Hubs, we'll
     - Click **Add**.
 1. Select **Overview** tab from the left pane and copy the **Vault URI**.
 
-### Subscribe to `users` resource to receive change notifications by using Logic Apps
+### 🪡 Exercise: Subscribe to `users` resource to receive change notifications by using Logic Apps
 To start receiving Microsoft Graph Change Notifications, we'll need to create subscription to the resource that we'd like to track. We'll use Azure Logic Apps to create subscription. 
 
 To create subscription for Microsoft Graph Change Notifications, we'll need to make a http post request to `https://graph.microsoft.com/v1.0/subscriptions`. Microsoft Graph requires Azure Active Directory authentication make API calls. First, we'll need to register an app to Azure Active Directory, and then we will make the Microsoft Graph Subscription API call with Azure Logic Apps.
 
-### 1️. Create an app in Azure Active Directory
+### 1️⃣ Create an app in Azure Active Directory
 1. In the [Azure Portal](https://portal.azure.com), go to **Azure Active Directory** and select **App registrations** from the left pane and select **+ New registration**. Fill in the details for the new App registration form as below:
     - Name: Graph Subscription Flow Auth
     - Supported account types: *Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)*
@@ -84,7 +84,7 @@ To create subscription for Microsoft Graph Change Notifications, we'll need to m
     - Copy the *value of the secret*.
 1. Go to **Overview** from the left pane, copy *Application (client) ID* and *Directory (tenant) ID*.
 
-### 2️. Create subscription with Azure Logic Apps
+### 2️⃣ Create subscription with Azure Logic Apps
 1. Go to [Azure Portal](https://portal.azure.com) and select **Create a resource**, type **Logic apps** and select click **Create**.
 1. Fill in the Logic Apps creation details, and then click **Create**.
 1. Go to the newly created Logic Apps page, select **Workflows** tab from the left pane and select **+ Add**:
@@ -136,7 +136,7 @@ We'll create a second workflow in the Logic Apps to:
 - Receive change notifications from Event Hubs when there is a new user created in the Azure Active Directory,
 - Add new user in Onboarding team on Microsoft Teams.
 
-### Create Onboarding workflow in the Logic Apps
+### ♾️ Exercise: Create Onboarding workflow in the Logic Apps
 1. Go to the Logic Apps you created in the previous steps, select **Workflows** tab and create a new workflow by selecting **+ Add**:
     - Give a name to the new workflow as *teams-onboarding-flow*
     - Select **Stateful** as a state type
