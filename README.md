@@ -108,7 +108,7 @@ To create subscription for Microsoft Graph Change Notifications, we'll need to m
     "changeType": "created, updated",
     "clientState": "secretClientValue",
     "expirationDateTime": "@{addHours(utcNow(), 1)}",
-    "notificationUrl": "EventHub:https://<YOUR-VAULT-URI>/secrets/<YOUR-KEY-VAULT-SECRET-NAME>?tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "notificationUrl": "EventHub:https://<YOUR-VAULT-URI>/secrets/<YOUR-KEY-VAULT-SECRET-NAME>?tenantId=<YOUR-TENANT-ID>",
     "resource": "users"
     }
     ```
